@@ -1,15 +1,21 @@
 import { Component }  from 'react'
-import BlogPost from './BlogPost.tsx'
+import BlogPost from './BlogPost.js'
 
-class Blog extends Component {
-    constructor(props) {
+interface IBlogProps {
+}
+
+interface IBlogState {
+}
+
+class Blog extends Component<IBlogProps, IBlogState> {
+    constructor(props: IBlogProps) {
         super(props)
     }
     render() {
         return (
             <>
-                <BlogPost post='blog/20220506-change.html' />
-                <BlogPost post='blog/000000000-swim.html' />
+                <BlogPost postURL='blog/20220506-change.html' />
+                <BlogPost postURL='blog/000000000-swim.html' />
             </>
         )
     }
