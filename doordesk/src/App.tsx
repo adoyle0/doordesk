@@ -1,22 +1,39 @@
-import { Component }  from 'react'
+import { Component } from 'react'
 import './App.css'
 import Header from './components/Header.js'
 import Blog from './components/Blog.js'
 
-const BLOG_POSTS = [
-    'blog/000000000-swim.html',
-    'blog/20220506-change.html'
+const FAKE_IT_TIL_YOU_MAKE_IT: string[] = [
+    'Blog',
+    'Games',
+    'Cartman',
+    'Enigma',
+    'Notebooks',
 ]
 
-class App extends Component {
-    constructor(props) {
+interface IAppProps {
+}
+
+interface IAppState {
+    currentPage: string;
+}
+
+class App extends Component<IAppProps, IAppState> {
+    constructor(props: IAppProps) {
         super(props)
+        this.state = {
+            currentPage: 'Blog'
+        }
     }
     render() {
+        let page;
+        if (this.state.currentPage === 'Blog') {
+            page = <Blog />
+        }
         return (
             <div className="App">
-                <Header />
-                <Blog />
+                <Header pages={FAKE_IT_TIL_YOU_MAKE_IT} currentPage={this.state.currentPage} />
+                {page}
             </div>
         )
     }

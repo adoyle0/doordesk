@@ -1,10 +1,21 @@
 import { Component } from 'react'
 import BlogPost from './BlogPost.js'
 
-const BLOG_URLS: string[] = [
+// should render one by one
+
+// make api that has post id, title, date, etc with url to article; then
+// distribute to blog posts
+
+const FAKE_IT_TIL_YOU_MAKE_IT: string[] = [
+    'blog/20220701-progress.html',
+    'blog/20220614-reddit.html',
+    'blog/20220602-back.html',
+    'blog/20220529-housing.html',
+    'blog/20220520-nvidia.html',
     'blog/20220506-change.html',
-    'blog/000000000-swim.html'
+    'blog/000000000-swim.html',
 ]
+
 interface IBlogProps {
 }
 
@@ -23,7 +34,7 @@ class Blog extends Component<IBlogProps, IBlogState> {
     render() {
         return (
             <>
-                {this.renderPosts(BLOG_URLS)}
+                {this.renderPosts(FAKE_IT_TIL_YOU_MAKE_IT)}
             </>
         )
     }
