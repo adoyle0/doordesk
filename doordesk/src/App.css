@@ -2,22 +2,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
 
 :root{
-  --useless-gaps: 1em;
+    --useless-gaps: 1em;
 }
-
 html, body {
-  background-color: black;
-  background-image: url("bg.png");
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  font-family: 'Roboto Mono', monospace;
-  font-size: 14;
-  line-height: 1.7em;
-  color: var(--foreground);
+    background-color: black;
+    background-image: url("bg.png");
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 14;
+    line-height: 1.7em;
+    color: var(--foreground);
 }
-
 input, textarea {
     background-color: var(--background);
     color: var(--foreground);
@@ -43,84 +41,68 @@ input[type=submit]:hover {
     background-color: var(--color10);
 }
 img{
-  max-width: 100%;
-  height: auto;
-  }
-  
+    max-width: 100%;
+    height: auto;
+}
 a {
-  color: var(--color4);
+    color: var(--color4);
 }
-
 a:hover {
-  color: var(--color5);
+    color: var(--color5);
 }
-
 h1 {
-  color: var(--color10);
+    color: var(--color10);
 }
-
 h2 {
-  color: var(--color6);
+    color: var(--color6);
 }
-
 h3 {
-  color: var(--color3);
-  margin-top: 2em;
+    color: var(--color3);
+    margin-top: 2em;
 }
-
 p {
-  margin-top: 2em;
+    margin-top: 2em;
 }
-
-
 .content {
-  margin: 3em;
+    margin: 3em;
 }
-
 .content-container, .header {
-  margin: auto;
-  margin-top: var(--useless-gaps);
-  background: rgb(0,0,0,.8);
-  border: solid 1px;
-  border-color: var(--color4);
-  max-width: 80em;
-  box-shadow: 5px 12px 20px #000;
+    margin: auto;
+    margin-top: var(--useless-gaps);
+    background: rgb(0,0,0,.8);
+    border: solid 1px;
+    border-color: var(--color4);
+    max-width: 80em;
+    box-shadow: 5px 12px 20px #000;
 }
-
 .date{
-  color: var(--color4)
+    color: var(--color4)
 }
-
 .cards {
-  display: -webkit-flex;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  max-width: 100%;
-  overflow: hidden;
-  margin: auto;
-  max-width: 80%;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    max-width: 100%;
+    overflow: hidden;
+    margin: auto;
+    max-width: 80%;
 }
-
 .card {
-  border-style: solid;
-  border-width: 1px;
-  width: 20rem;
-  padding: 0 2em 2em 2em;
-  margin: 2em;
+    border-style: solid;
+    border-width: 1px;
+    width: 20rem;
+    padding: 0 2em 2em 2em;
+    margin: 2em;
 }
-
 .align-right {
-  text-align: right;
+    text-align: right;
 }
-
 .align-center {
-  text-align: center;
+    text-align: center;
 }
-
 .title {
-  margin-top: -1em;
+    margin-top: -1em;
 }
-

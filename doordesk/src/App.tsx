@@ -4,11 +4,12 @@ import Header from './components/Header.js'
 import Blog from './components/Blog.js'
 
 const FAKE_IT_TIL_YOU_MAKE_IT: string[] = [
-    'Blog',
-    'Games',
-    'Cartman',
-    'Enigma',
-    'Notebooks',
+    // component carousel
+    'Home',     // table of top 5 from(when enough content) *; then interleave latest from *
+    'Blog',     // blog posts
+    'Projects', // project writeups
+    'Games',    // cards with thumbnail and summary
+    'Contact',  // email form?
 ]
 
 interface IAppProps {
@@ -32,7 +33,10 @@ class App extends Component<IAppProps, IAppState> {
         }
         return (
             <div className="App">
-                <Header pages={FAKE_IT_TIL_YOU_MAKE_IT} currentPage={this.state.currentPage} />
+                <Header
+                    pages={FAKE_IT_TIL_YOU_MAKE_IT}
+                    currentPage={this.state.currentPage}
+                />
                 {page}
             </div>
         )

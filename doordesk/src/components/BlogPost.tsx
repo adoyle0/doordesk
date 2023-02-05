@@ -5,11 +5,9 @@ import rehypeRaw from 'rehype-raw'
 interface IBlogPostProps {
     postURL: string;
 }
-
 interface IBlogPostState {
     postHTML: string;
 }
-
 class BlogPost extends Component<IBlogPostProps, IBlogPostState> {
     constructor(props: IBlogPostProps) {
         super(props)
@@ -24,7 +22,6 @@ class BlogPost extends Component<IBlogPostProps, IBlogPostState> {
     componentDidMount() {
         this.getPost(this.props.postURL)
             .then((text) => this.setState({ postHTML: text }))
-
     }
     render() {
         return (
