@@ -1,6 +1,10 @@
-import { Component }  from 'react'
+import { Component } from 'react'
 import BlogPost from './BlogPost.js'
 
+const BLOG_URLS: string[] = [
+    'blog/20220506-change.html',
+    'blog/000000000-swim.html'
+]
 interface IBlogProps {
 }
 
@@ -11,11 +15,15 @@ class Blog extends Component<IBlogProps, IBlogState> {
     constructor(props: IBlogProps) {
         super(props)
     }
+    renderPosts(urls: string[]): JSX.Element[] {
+        return (
+            urls.map((postURL) => <BlogPost key={postURL} postURL={postURL} />)
+        )
+    }
     render() {
         return (
             <>
-                <BlogPost postURL='blog/20220506-change.html' />
-                <BlogPost postURL='blog/000000000-swim.html' />
+                {this.renderPosts(BLOG_URLS)}
             </>
         )
     }
