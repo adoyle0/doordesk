@@ -8,9 +8,7 @@ import BlogPost from './BlogPost.js'
 
 const FAKE_IT_TIL_YOU_MAKE_IT: string[] = [
     'blog/20220701-progress.html',
-    'blog/20220614-reddit.html',
     'blog/20220602-back.html',
-    'blog/20220529-housing.html',
     'blog/20220520-nvidia.html',
     'blog/20220506-change.html',
     'blog/000000000-swim.html',
