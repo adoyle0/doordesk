@@ -5,7 +5,7 @@ import Home from './components/Home.js'
 import Blog from './components/Blog.js'
 import Projects from './components/Projects.js'
 import Games from './components/Games.js'
-import Contact from './components/Contact.js'
+import Cartman from './components/Cartman.js'
 
 const FAKE_IT_TIL_YOU_MAKE_IT: string[] = [
     // component carousel
@@ -13,7 +13,7 @@ const FAKE_IT_TIL_YOU_MAKE_IT: string[] = [
     'Blog',     // blog posts
     'Projects', // project writeups
     'Games',    // cards with thumbnail and summary
-    'Contact',  // email form?
+    'Cartman',  // with knobs!
 ]
 
 interface IAppProps {
@@ -65,8 +65,8 @@ class App extends Component<IAppProps, IAppState> {
             case 'Games':
                 page = <Games />
                 break;
-            case 'Contact':
-                page = <Contact />
+            case 'Cartman':
+                page = <Cartman />
                 break;
             default:
                 page = <Home />

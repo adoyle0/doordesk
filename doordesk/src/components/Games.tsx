@@ -1,20 +1,33 @@
 import { Component } from 'react'
+import ReactMarkdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
 
 interface IGamesProps {
 }
 
 interface IGamesState {
+    html: string;
 }
 
 class Games extends Component<IGamesProps, IGamesState> {
     constructor(props: IGamesProps) {
         super(props)
+        this.state = {
+            'html': ''
+        }
+    }
+    componentDidMount() {
+        return fetch('games/index.html')
+            .then((res) => res.text())
+            .then((text) => this.setState({ html: text }))
     }
     render() {
         return (
             <div className="content-container">
                 <div className="content">
-                    <p>yo dawg I heard you like games</p>
+                    <ReactMarkdown
+                        rehypePlugins={[rehypeRaw]}
+                        children={this.state.html} />
                 </div>
             </div>
         )

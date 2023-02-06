@@ -76,7 +76,8 @@ p {
     box-shadow: 5px 12px 20px #000;
 }
 .date{
-    color: var(--color4)
+    color: var(--color4);
+    margin-bottom: 2em;
 }
 .cards {
     display: -webkit-flex;
