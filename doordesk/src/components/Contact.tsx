@@ -1,24 +1,24 @@
 import { Component } from 'react'
 
-interface IGamesProps {
+interface IContactProps {
 }
 
-interface IGamesState {
+interface IContactState {
 }
 
-class Games extends Component<IGamesProps, IGamesState> {
-    constructor(props: IGamesProps) {
+class Contact extends Component<IContactProps, IContactState> {
+    constructor(props: IContactProps) {
         super(props)
     }
     render() {
         return (
             <div className="content-container">
                 <div className="content">
-                    <p>yo dawg I heard you like games</p>
+                    <p>contact me maybe</p>
                 </div>
             </div>
         )
     }
 }
 
-export default Games
+export default Contact

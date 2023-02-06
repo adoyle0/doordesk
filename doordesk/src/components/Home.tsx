@@ -1,24 +1,24 @@
 import { Component } from 'react'
 
-interface IGamesProps {
+interface IHomeProps {
 }
 
-interface IGamesState {
+interface IHomeState {
 }
 
-class Games extends Component<IGamesProps, IGamesState> {
-    constructor(props: IGamesProps) {
+class Home extends Component<IHomeProps, IHomeState> {
+    constructor(props: IHomeProps) {
         super(props)
     }
     render() {
         return (
             <div className="content-container">
                 <div className="content">
-                    <p>yo dawg I heard you like games</p>
+                    <p>home is where your guns are</p>
                 </div>
             </div>
         )
     }
 }
 
-export default Games
+export default Home
