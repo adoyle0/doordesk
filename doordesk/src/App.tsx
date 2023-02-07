@@ -16,10 +16,10 @@ const FAKE_IT_TIL_YOU_MAKE_IT: string[] = [
     'Cartman',  // with knobs!
 ]
 
-interface IAppProps {
+type IAppProps = {
 }
 
-interface IAppState {
+type IAppState = {
     currentPage: string;
     currentPageIndex: number;
 }

@@ -2,10 +2,10 @@ import { Component } from 'react'
 import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 
-interface IGamesProps {
+type IGamesProps = {
 }
 
-interface IGamesState {
+type IGamesState = {
     html: string;
 }
 
@@ -16,7 +16,7 @@ class Games extends Component<IGamesProps, IGamesState> {
             'html': ''
         }
     }
-    componentDidMount() {
+    async componentDidMount() {
         return fetch('games/index.html')
             .then((res) => res.text())
             .then((text) => this.setState({ html: text }))

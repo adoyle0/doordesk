@@ -2,10 +2,10 @@ import { Component } from 'react'
 import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 
-interface IBlogPostProps {
+type IBlogPostProps = {
     postURL: string;
 }
-interface IBlogPostState {
+type IBlogPostState = {
     postHTML: string;
 }
 class BlogPost extends Component<IBlogPostProps, IBlogPostState> {
@@ -19,7 +19,7 @@ class BlogPost extends Component<IBlogPostProps, IBlogPostState> {
         return fetch(post)
             .then((res) => res.text())
     }
-    componentDidMount() {
+    async componentDidMount() {
         this.getPost(this.props.postURL)
             .then((text) => this.setState({ postHTML: text }))
     }

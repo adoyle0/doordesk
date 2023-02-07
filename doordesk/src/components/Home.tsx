@@ -16,10 +16,10 @@ const FAKE_IT_TIL_YOU_MAKE_IT: string[] = [
     'blog/000000000-swim.html',
 ]
 
-interface IHomeProps {
+type IHomeProps = {
 }
 
-interface IHomeState {
+type IHomeState = {
 }
 
 class Home extends Component<IHomeProps, IHomeState> {

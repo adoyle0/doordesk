@@ -1,9 +1,9 @@
 import { Component } from 'react'
 
-interface ICartmanProps {
+type ICartmanProps = {
 }
 
-interface ICartmanState {
+type ICartmanState = {
 }
 
 class Cartman extends Component<ICartmanProps, ICartmanState> {

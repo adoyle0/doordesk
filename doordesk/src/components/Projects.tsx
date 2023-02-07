@@ -11,10 +11,10 @@ const FAKE_IT_TIL_YOU_MAKE_IT: string[] = [
     'blog/20220529-housing.html',
 ]
 
-interface IProjectsProps {
+type IProjectsProps = {
 }
 
-interface IProjectsState {
+type IProjectsState = {
 }
 
 class Projects extends Component<IProjectsProps, IProjectsState> {

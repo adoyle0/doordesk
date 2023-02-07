@@ -1,11 +1,11 @@
 import { Component } from 'react'
 
-interface IHeaderProps {
+type IHeaderProps = {
     pages: string[];
     currentPage: string;
 }
 
-interface IHeaderState {
+type IHeaderState = {
 }
 
 class Header extends Component<IHeaderProps, IHeaderState> {

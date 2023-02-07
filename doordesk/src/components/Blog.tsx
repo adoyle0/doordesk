@@ -14,10 +14,10 @@ const FAKE_IT_TIL_YOU_MAKE_IT: string[] = [
     'blog/000000000-swim.html',
 ]
 
-interface IBlogProps {
+type IBlogProps = {
 }
 
-interface IBlogState {
+type IBlogState = {
 }
 
 class Blog extends Component<IBlogProps, IBlogState> {
