@@ -19,4 +19,4 @@ Cartman, Enigma - Own pages? Pinned projects?
 - Post rank system
 - Dynamic backgrounds/colors? How to animate?
 
-```./start_frontend_ghetto```
+```npm run frontend```

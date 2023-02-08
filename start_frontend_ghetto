@@ -1,5 +1,0 @@
-#!/bin/bash
-
-cd doordesk &&
-    npm install &&
-    npm run dev
