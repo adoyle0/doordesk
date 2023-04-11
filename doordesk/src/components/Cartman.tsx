@@ -100,7 +100,7 @@ class Cartman extends Component<CartmanProps, CartmanState> {
                                         id="num_beams"
                                         type="number"
                                         defaultValue={this.state.num_beams}
-                                    /> (must be divisible by num_beam_groups)
+                                    /> (must be divisible by num_beam_groups) -- do form validation
                                 </td>
                             </tr>
                             <tr>
