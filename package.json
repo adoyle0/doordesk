@@ -1,5 +1,6 @@
 {
     "scripts": {
-        "frontend": "cd doordesk && npm install && npm run dev"
+        "dd": "cd doordesk && npm install && npm run dev",
+        "dennis": "cd dennis && source ./bin/activate && pip install --upgrade pip && pip install -r requirements.txt && python main.py"
     }
 }

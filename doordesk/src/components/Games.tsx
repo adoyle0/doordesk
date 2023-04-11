@@ -24,11 +24,9 @@ class Games extends Component<IGamesProps, IGamesState> {
     render() {
         return (
             <div className="content-container">
-                <div className="content">
-                    <ReactMarkdown
-                        rehypePlugins={[rehypeRaw]}
-                        children={this.state.html} />
-                </div>
+                <ReactMarkdown
+                    rehypePlugins={[rehypeRaw]}
+                    children={this.state.html} />
             </div>
         )
     }

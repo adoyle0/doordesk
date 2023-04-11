@@ -3,6 +3,7 @@
 
 :root{
     --useless-gaps: 1em;
+    --spacer-default: 2em;
 }
 html, body {
     background-color: black;
@@ -58,18 +59,16 @@ h2 {
 }
 h3 {
     color: var(--color3);
-    margin-top: 2em;
 }
 p {
-    margin-top: 2em;
+    margin-top: var(--spacer-default); 
 }
-.content {
-    margin: 3em;
-}
-.content-container, .header {
+.content-container {
+    padding-left: var(--spacer-default); 
+    padding-right: var(--spacer-default); 
     margin: auto;
     margin-top: var(--useless-gaps);
-    background: rgb(0,0,0,.8);
+    background: rgba(0,0,0,.8);
     border: solid 1px;
     border-color: var(--color4);
     max-width: 80em;
@@ -77,7 +76,6 @@ p {
 }
 .date{
     color: var(--color4);
-    margin-bottom: 2em;
 }
 .cards {
     display: -webkit-flex;
@@ -96,14 +94,11 @@ p {
     border-width: 1px;
     width: 20rem;
     padding: 0 2em 2em 2em;
-    margin: 2em;
+    margin: var(--spacer-default); 
 }
 .align-right {
     text-align: right;
 }
 .align-center {
     text-align: center;
-}
-.title {
-    margin-top: -1em;
 }

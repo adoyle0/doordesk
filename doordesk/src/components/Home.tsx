@@ -1,5 +1,4 @@
-import { Component } from 'react'
-import BlogPost from './BlogPost.js'
+import Article from './Article.js'
 
 // should render one by one
 
@@ -7,37 +6,27 @@ import BlogPost from './BlogPost.js'
 // distribute to blog posts
 
 const FAKE_IT_TIL_YOU_MAKE_IT: string[] = [
+    'projects/20230217-cartman.html',
     'blog/20220701-progress.html',
-    'blog/20220614-reddit.html',
+    'projects/20220614-reddit.html',
     'blog/20220602-back.html',
-    'blog/20220529-housing.html',
+    'projects/20220529-housing.html',
     'blog/20220520-nvidia.html',
     'blog/20220506-change.html',
     'blog/000000000-swim.html',
 ]
 
-type IHomeProps = {
-}
-
-type IHomeState = {
-}
-
-class Home extends Component<IHomeProps, IHomeState> {
-    constructor(props: IHomeProps) {
-        super(props)
-    }
-    renderPosts(urls: string[]): JSX.Element[] {
+function Home() {
+    function renderPosts(urls: string[]): JSX.Element[] {
         return (
-            urls.map((postURL) => <BlogPost key={postURL} postURL={postURL} />)
+            urls.map((postURL) => <Article key={postURL} postURL={postURL} />)
         )
     }
-    render() {
-        return (
-            <>
-                {this.renderPosts(FAKE_IT_TIL_YOU_MAKE_IT)}
-            </>
-        )
-    }
+    return (
+        <>
+            {renderPosts(FAKE_IT_TIL_YOU_MAKE_IT)}
+        </>
+    )
 }
 
 export default Home

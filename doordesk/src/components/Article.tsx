@@ -2,14 +2,14 @@ import { Component } from 'react'
 import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 
-type IBlogPostProps = {
+type ArticleProps = {
     postURL: string;
 }
-type IBlogPostState = {
+type ArticleState = {
     postHTML: string;
 }
-class BlogPost extends Component<IBlogPostProps, IBlogPostState> {
-    constructor(props: IBlogPostProps) {
+class Article extends Component<ArticleProps, ArticleState> {
+    constructor(props: ArticleProps) {
         super(props)
         this.state = {
             'postHTML': ''
@@ -26,14 +26,12 @@ class BlogPost extends Component<IBlogPostProps, IBlogPostState> {
     render() {
         return (
             <div className="content-container">
-                <div className="content">
-                    <ReactMarkdown
-                        rehypePlugins={[rehypeRaw]}
-                        children={this.state.postHTML} />
-                </div>
+                <ReactMarkdown
+                    rehypePlugins={[rehypeRaw]}
+                    children={this.state.postHTML} />
             </div>
         )
     }
 }
 
-export default BlogPost
+export default Article
