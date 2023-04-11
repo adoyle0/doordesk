@@ -19,8 +19,9 @@ Cartman, Enigma - Own pages? Pinned projects?
 - Post rank system
 - Dynamic backgrounds/colors? How to animate?
 
-```npm run dd```
 ```npm run dennis```
+&&
+```npm run dd```
 
 
 dennis has a slingshot
