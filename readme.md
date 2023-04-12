@@ -1,9 +1,14 @@
 # doordesk
 
-A file gets put in a directory, then based on the filetype and location it gets automatically 
-indexed by the backend then displayed on the frontend with React.
+A file (html/md with header, wasm binary, jupyter notebook?) gets put in a directory, then simply exists on the website.
 
-Idea is to just throw files at it and it'll just be handled, cause I'm lazy.
+```npm run dennis``` - backend for react
+
+```npm run react``` - react
+
+```npm run solid``` - solid ssr
+
+I just want to throw files at it and have it be handled, cause I'm lazy.
 
 Home - Interleave latest from other pages, maybe add top/hot lists or something
 
@@ -19,9 +24,3 @@ Cartman, Enigma - Own pages? Pinned projects?
 - Post rank system
 - Dynamic backgrounds/colors? How to animate?
 
-```npm run dennis```
-&&
-```npm run dd```
-
-
-dennis has a slingshot
