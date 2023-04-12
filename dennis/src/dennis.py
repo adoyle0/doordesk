@@ -24,7 +24,7 @@ api.add_middleware(
 
 
 @api.get('/dennis/blog')
-async def return_blog_posts():
+async def make_a_database():
     return [
         Article(
             content_type='article',
@@ -60,7 +60,7 @@ async def return_blog_posts():
 
 
 @api.get('/dennis/projects')
-async def return_projects():
+async def make_a_daatabase():
     return [
         Article(
             content_type='chatbot',
