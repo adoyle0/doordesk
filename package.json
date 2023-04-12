@@ -1,6 +1,7 @@
 {
     "scripts": {
-        "dd": "cd doordesk && npm install && npm run dev",
+        "react": "cd slow_react && npm install && npm run dev",
+        "solid": "cd solid_door && npm install && npm run dev",
         "dennis": "cd dennis && source ./bin/activate && pip install --upgrade pip && pip install -r requirements.txt && python main.py"
     }
 }
