@@ -21,7 +21,7 @@ class Blog extends Component {
     render() {
         return (
             <>
-                {console.log(this.state.articles.map(asd => asd.url))}
+                {console.log(this.state.articles.map(asd => asd.url), "bet you can't guess how many times I run O.o")}
             </>
         )
     }
