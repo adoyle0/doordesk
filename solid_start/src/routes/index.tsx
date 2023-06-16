@@ -25,12 +25,10 @@ export default function Home() {
     const { blogPosts } = useRouteData<typeof routeData>();
 
     return (
-        <>
-            <ul>
-                <For each={blogPosts()}>
-                    {(post) => <li><Post article={post} /></li>}
-                </For>
-            </ul>
-        </>
+        <ul>
+            <For each={blogPosts()}>
+                {(post) => <li><Post article={post} /></li>}
+            </For>
+        </ul>
     )
 };
