@@ -1,7 +1,7 @@
 import type { Article } from "~/routes";
 
 export default function Post(props: Article) {
-    console.log(props)
+
     return (
         <main class="bg-zinc-900 mx-auto text-zinc-300 p-4 my-5 max-w-prose">
             <p class="text-right">
