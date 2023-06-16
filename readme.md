@@ -2,12 +2,6 @@
 
 A file (html/md with header, wasm binary, jupyter notebook?) gets put in a directory, then simply exists on the website.
 
-```npm run dennis``` - backend for react
-
-```npm run react``` - react
-
-```npm run solid``` - solid ssr
-
 I just want to throw files at it and have it be handled, cause I'm lazy.
 
 Home - Interleave latest from other pages, maybe add top/hot lists or something
