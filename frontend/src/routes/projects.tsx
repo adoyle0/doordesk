@@ -17,7 +17,7 @@ export function routeData() {
 };
 
 
-export default function Home() {
+export default function Projects() {
     const { ammoBox } = useRouteData<typeof routeData>();
 
     return (
