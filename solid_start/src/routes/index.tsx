@@ -1,34 +1,30 @@
-import { For, Accessor, createResource } from "solid-js"
+import { For, createResource } from "solid-js";
 import { useRouteData } from "solid-start";
-import Post from "~/components/Post"
+import Slingshot from "~/components/Slingshot";
 
-
-export type Article = {
-    content_type: string;
-    title: string;
-    date: string;
-    url: string;
-};
+import type { JSXElement } from "solid-js";
+import type { Ammo } from "~/components/Slingshot";
 
 
 export function routeData() {
-    const [blogPosts] = createResource(async () => {
-        const response = await fetch("http://127.0.0.1:9696/dennis/blog")
-        return await response.json() as Article[];
+    const [ammoBox] = createResource(async () => {
+        const response = await fetch("http://127.0.0.1:9696/dennis/home");
+
+        return await response.json() as Ammo[];
     });
 
-    return { blogPosts };
+    return { ammoBox };
 };
 
 
 export default function Home() {
-    const { blogPosts } = useRouteData<typeof routeData>();
+    const { ammoBox } = useRouteData<typeof routeData>();
 
     return (
         <ul>
-            <For each={blogPosts()}>
-                {(post) => <li><Post article={post} /></li>}
+            <For each={ammoBox()}>
+                {(content) => <li><Slingshot ammo={content} /></li>}
             </For>
         </ul>
-    )
+    ) as JSXElement;
 };

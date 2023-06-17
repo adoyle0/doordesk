@@ -13,16 +13,19 @@ import {
     Scripts,
     Title,
 } from "solid-start";
+
 import "./root.css";
+
 
 export default function Root() {
     const location = useLocation();
     const active = (path: string) =>
         path == location.pathname
-            ? "border-sky-600"
-            : "border-transparent hover:border-sky-600";
+            ? "border-orange-700"
+            : "border-transparent hover:border-orange-700 duration-300";
+
     return (
-        <Html lang="en">
+        <Html lang="en" class="text-zinc-300">
             <Head>
                 <Title>doordesk</Title>
                 <Meta charset="utf-8" />
@@ -32,7 +35,7 @@ export default function Root() {
                 <Suspense>
                     <ErrorBoundary>
                         <nav class="bg-gradient-to-b from-zinc-800 to-zinc-900">
-                            <ul class="container flex items-center p-3 text-gray-200">
+                            <ul class="container flex items-center p-3">
                                 <li class={`border-b-2} mx-1.5 sm:mx-6`}>
                                     DoorDesk
                                 </li>
@@ -45,15 +48,6 @@ export default function Root() {
                                 <li class={`border-b-2 ${active("/projects")} mx-1.5 sm:mx-6`}>
                                     <A href="/projects">Projects</A>
                                 </li>
-                                <li class={`border-b-2 ${active("/games")} mx-1.5 sm:mx-6`}>
-                                    <A href="/games">Games</A>
-                                </li>
-                                <li class={`border-b-2 ${active("/cartman")} mx-1.5 sm:mx-6`}>
-                                    <A href="/cartman">Cartman</A>
-                                </li>
-                                <li class={`border-b-2 ${active("/about")} mx-1.5 sm:mx-6`}>
-                                    <A href="/about">About</A>
-                                </li>
                             </ul>
                         </nav>
                         <Routes>
@@ -65,4 +59,4 @@ export default function Root() {
             </Body>
         </Html>
     );
-}
+};

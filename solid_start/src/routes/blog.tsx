@@ -1,31 +1,30 @@
-import { A } from "solid-start";
-import Counter from "~/components/Counter";
+import { For, createResource } from "solid-js";
+import { useRouteData } from "solid-start";
+import Slingshot from "~/components/Slingshot";
+
+import type { JSXElement } from "solid-js";
+import type { Ammo } from "~/components/Slingshot";
+
+
+export function routeData() {
+    const [ammoBox] = createResource(async () => {
+        const response = await fetch("http://127.0.0.1:9696/dennis/blog");
+
+        return await response.json() as Ammo[];
+    });
+
+    return { ammoBox };
+};
+
 
 export default function Home() {
-  return (
-    <main class="text-center mx-auto text-gray-700 p-4">
-      <h1 class="max-6-xs text-6xl text-sky-700 font-thin uppercase my-16">
-                Blog!
-      </h1>
-      <Counter />
-      <p class="mt-8">
-        Visit{" "}
-        <a
-          href="https://solidjs.com"
-          target="_blank"
-          class="text-sky-600 hover:underline"
-        >
-          solidjs.com
-        </a>{" "}
-        to learn how to build Solid apps.
-      </p>
-      <p class="my-4">
-        <span>Home</span>
-        {" - "}
-        <A href="/about" class="text-sky-600 hover:underline">
-          About Page
-        </A>{" "}
-      </p>
-    </main>
-  );
-}
+    const { ammoBox } = useRouteData<typeof routeData>();
+
+    return (
+        <ul>
+            <For each={ammoBox()}>
+                {(blogPosts) => <li><Slingshot ammo={blogPosts} /></li>}
+            </For>
+        </ul>
+    ) as JSXElement;
+};
