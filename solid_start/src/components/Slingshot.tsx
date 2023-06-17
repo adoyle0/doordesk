@@ -19,6 +19,7 @@ export default function Slingshot(props: { ammo: Ammo }) {
             <h1 class="max-6-xs text-3xl text-red-600 font-light uppercase">
                 {props.ammo.title}
             </h1>
+            <p class="m-2">{props.ammo.content_type}</p>
             <div innerHTML={props.ammo.content} />
         </main>
     ) as JSXElement;
