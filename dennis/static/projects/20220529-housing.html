@@ -1,6 +1,4 @@
 <article>
-    <p className="align-right date">May 29, 2022</p>
-    <h2 className="title">Predicting Housing Prices</h2>
     <p>
         A recent project I had for class was to use
         <a href="https://scikit-learn.org/stable/index.html" target="new">scikit-learn</a>
@@ -30,20 +28,20 @@
         Well, I don't know much about appraising houses. But I have heard the term "price per
         square foot" so we'll start with that:
     </p>
-    <p className="align-center"><img src="https://doordesk.net/pics/livarea_no_outliers.png" /></p>
+    <p style="text-align: center;"><img src="https://doordesk.net/pics/livarea_no_outliers.png" /></p>
     <p>
         There is a feature for 'Above Grade Living Area' meaning floor area that's not basement.
         It looks linear, there were a couple outliers to take care of but this should be a good
         signal.
     </p>
     <p>Next I calculated the age of every house at time of sale and plotted it:</p>
-    <p className="align-center"><img src="https://doordesk.net/pics/age.png" /></p>
+    <p style="text-align: center;"><img src="https://doordesk.net/pics/age.png" /></p>
     <p>
         Exactly what I'd expect to see. Price drops as age goes up, a few outliers. We'll
         include that in the model.
     </p>
     <p>Next I chose the area of the lot:</p>
-    <p className="align-center"><img src="https://doordesk.net/pics/lot_area.png" /></p>
+    <p style="text-align: center;"><img src="https://doordesk.net/pics/lot_area.png" /></p>
     <p>
         Lot area positively affects sale price because land has value. Most of the houses here
         have similarly sized lots.

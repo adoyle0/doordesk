@@ -12,7 +12,7 @@ export type Ammo = {
 export default function Slingshot(props: { ammo: Ammo }) {
 
     return (
-        <main class="bg-zinc-900 mx-auto p-4 my-5 w-11/12 max-w-screen-xl">
+        <main class="bg-zinc-700 mx-auto p-6 my-5 w-11/12 max-w-screen-xl rounded-md shadow-lg bg-opacity-20">
             <p class="text-right">
                 {props.ammo.date}
             </p>
