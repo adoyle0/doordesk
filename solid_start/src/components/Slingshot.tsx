@@ -12,14 +12,14 @@ export type Ammo = {
 export default function Slingshot(props: { ammo: Ammo }) {
 
     return (
-        <main class="bg-zinc-700 mx-auto p-6 my-5 w-11/12 max-w-screen-xl rounded-md shadow-lg bg-opacity-20">
-            <p class="text-right">
-                {props.ammo.date}
-            </p>
-            <h1 class="max-6-xs text-3xl text-red-600 font-light uppercase">
+        <main class="bg-zinc-700 mx-auto p-7 my-5 w-11/12 max-w-screen-xl rounded-md shadow-lg bg-opacity-10">
+            <h1 class="max-6-xs text-3xl text-orange-600 font-light capitalize">
                 {props.ammo.title}
             </h1>
-            <p class="m-2">{props.ammo.content_type}</p>
+            <hr class="opacity-50" />
+            <p class="opacity-50 text-xs pt-1.5 pb-3.5">
+                {props.ammo.date}
+            </p>
             <div innerHTML={props.ammo.content} />
         </main>
     ) as JSXElement;

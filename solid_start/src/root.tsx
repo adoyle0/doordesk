@@ -25,7 +25,7 @@ export default function Root() {
             : "border-transparent hover:border-orange-700 duration-300";
 
     return (
-        <Html lang="en" class="text-orange-50">
+        <Html lang="en" class="text-orange-50 antialiased font-mono tracking-tighter">
             <Head>
                 <Title>doordesk</Title>
                 <Meta charset="utf-8" />
@@ -56,6 +56,7 @@ export default function Root() {
                     </ErrorBoundary>
                 </Suspense>
                 <Scripts />
+                <p class="text-center hover:rotate-180 duration-200"><A href="https://open.spotify.com/playlist/3JRNw9gpt1w5ptsw8uDeYc?si=8f7e4191113f41f9">:)</A></p><br />
             </Body>
         </Html>
     );

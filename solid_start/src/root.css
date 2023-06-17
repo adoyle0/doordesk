@@ -3,10 +3,19 @@
 @tailwind utilities;
 
 /* for innerHTML articles */ 
-article p, h3 {
-    margin-top: 2em;
+article p {
+    @apply mt-5;
+    @apply indent-4;
 }
 
 article h3 {
-    font-size: 1.5em;
+    @apply mt-8;
+}
+
+article h3 {
+    @apply text-2xl text-orange-600;
+}
+
+article a {
+    @apply text-orange-300 hover:underline border-orange-300 duration-300;
 }
