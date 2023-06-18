@@ -118,22 +118,22 @@ fake_db = [
 
     ];
 
-@api.get('/dennis/home')
+@api.get('/home')
 async def serve_home():
 
     return fake_db
 
-@api.get('/dennis/blog')
+@api.get('/blog')
 async def serve_blog():
 
     return [entry for entry in fake_db if entry.content_type == 'blog']
 
-@api.get('/dennis/projects')
+@api.get('/projects')
 async def serve_projects():
 
     return [entry for entry in fake_db if entry.content_type == 'project' or entry.content_type == 'game']
 
-@api.get('/dennis/bots')
+@api.get('/bots')
 async def serve_bots():
 
     return [entry for entry in fake_db if entry.content_type == 'chatbot']
