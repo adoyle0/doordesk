@@ -16,6 +16,8 @@ import {
 
 import "./root.css";
 
+export const DENNIS = "https://dennis.doordesk.net";
+
 
 export default function Root() {
     const location = useLocation();

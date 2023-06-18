@@ -5,10 +5,11 @@ import Slingshot from "~/components/Slingshot";
 import type { JSXElement } from "solid-js";
 import type { Ammo } from "~/components/Slingshot";
 
+import { DENNIS } from "~/root";
 
 export function routeData() {
     const [ammoBox] = createResource(async () => {
-        const response = await fetch("http://127.0.0.1:9696/dennis/blog");
+        const response = await fetch(`${DENNIS}/blog`);
 
         return await response.json() as Ammo[];
     });
