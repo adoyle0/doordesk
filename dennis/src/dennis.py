@@ -27,6 +27,13 @@ fake_db = [
 
         Article(
             content_type='project',
+            title='''Lightning''',
+            date=date(2023, 4, 27),
+            content=get_html('projects/20230427-lightning.html'),
+        ),
+
+        Article(
+            content_type='project',
             title='''Cartman is public!''',
             date=date(2022, 10, 20),
             content=get_html('projects/20221020-cartman.html'),
