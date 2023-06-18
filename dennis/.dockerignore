@@ -1,5 +1,7 @@
 bin/
 dist/
 lib/
-__pycache__/
 pyvenv.cfg
+
+build
+run

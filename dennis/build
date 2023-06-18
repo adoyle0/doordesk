@@ -1,0 +1,16 @@
+#!/bin/bash
+
+NAME="dennis"
+FILE_PATH="dist/$NAME.tar.gz"
+
+if [ ! -d "dist" ]; then
+    mkdir dist
+fi
+
+if [ -f $FILE_PATH ]; then
+    rm $FILE_PATH
+fi
+
+docker build -t $NAME .
+
+echo "Compressing..." && docker save $NAME | pigz > $FILE_PATH
