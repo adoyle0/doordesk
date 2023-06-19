@@ -22,10 +22,10 @@ export default function Blog() {
     const { ammoBox } = useRouteData<typeof routeData>();
 
     return (
-        <ul>
+        <main>
             <For each={ammoBox()}>
-                {(blogPosts) => <li><Slingshot ammo={blogPosts} /></li>}
+                {(blogPosts) => <Slingshot ammo={blogPosts} />}
             </For>
-        </ul>
+        </main>
     ) as JSXElement;
 };

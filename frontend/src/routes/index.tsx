@@ -23,10 +23,10 @@ export default function Home() {
     const { ammoBox } = useRouteData<typeof routeData>();
 
     return (
-        <ul>
+        <main>
             <For each={ammoBox()}>
-                {(content) => <li><Slingshot ammo={content} /></li>}
+                {(content) => <Slingshot ammo={content} />}
             </For>
-        </ul>
+        </main>
     ) as JSXElement;
 };
