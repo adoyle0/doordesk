@@ -1,6 +1,6 @@
-# syntax=docker/dockerfile:1
+# syntax=docker/dockerfile:experimental
 
 FROM node:alpine
 COPY . .
-CMD ["npm", "run", "start"]
-EXPOSE 3000
+CMD npm run start
+EXPOSE 3006
