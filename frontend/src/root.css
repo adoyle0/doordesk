@@ -4,8 +4,7 @@
 
 /* for innerHTML articles */ 
 article p {
-    @apply mt-5;
-    @apply indent-4;
+    @apply mt-5 indent-4;
 }
 
 article h3 {
@@ -17,5 +16,17 @@ article h3 {
 }
 
 article a {
-    @apply text-orange-300 hover:underline border-orange-300 duration-300;
+    @apply text-orange-300 hover:underline;
+}
+
+article ul, article ol {
+    @apply mt-5 list-inside;
+}
+
+article ul {
+    @apply list-disc;
+}
+
+article ol {
+    @apply list-decimal;
 }
