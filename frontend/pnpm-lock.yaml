@@ -1728,7 +1728,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001504
-      electron-to-chromium: 1.4.433
+      electron-to-chromium: 1.4.434
       node-releases: 2.0.12
       update-browserslist-db: 1.0.11(browserslist@4.21.9)
 
@@ -1949,8 +1949,8 @@ packages:
   /ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  /electron-to-chromium@1.4.433:
-    resolution: {integrity: sha512-MGO1k0w1RgrfdbLVwmXcDhHHuxCn2qRgR7dYsJvWFKDttvYPx6FNzCGG0c/fBBvzK2LDh3UV7Tt9awnHnvAAUQ==}
+  /electron-to-chromium@1.4.434:
+    resolution: {integrity: sha512-5Gvm09UZTQRaWrimRtWRO5rvaX6Kpk5WHAPKDa7A4Gj6NIPuJ8w8WNpnxCXdd+CJJt6RBU6tUw0KyULoW6XuHw==}
 
   /emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -2825,7 +2825,7 @@ packages:
       rollup: 3.25.1
       sirv: 2.0.3
       solid-start: 0.2.26(@solidjs/meta@0.28.5)(@solidjs/router@0.8.2)(solid-js@1.7.6)(solid-start-node@0.2.26)(vite@4.3.9)
-      terser: 5.18.0
+      terser: 5.18.1
       undici: 5.22.1
       vite: 4.3.9
     transitivePeerDependencies:
@@ -2895,7 +2895,7 @@ packages:
       sirv: 2.0.3
       solid-js: 1.7.6
       solid-start-node: 0.2.26(solid-start@0.2.26)(undici@5.22.1)(vite@4.3.9)
-      terser: 5.18.0
+      terser: 5.18.1
       undici: 5.22.1
       vite: 4.3.9
       vite-plugin-inspect: 0.7.28(rollup@3.25.1)(vite@4.3.9)
@@ -3008,8 +3008,8 @@ packages:
       - ts-node
     dev: true
 
-  /terser@5.18.0:
-    resolution: {integrity: sha512-pdL757Ig5a0I+owA42l6tIuEycRuM7FPY4n62h44mRLRfnOxJkkOHd6i89dOpwZlpF6JXBwaAHF6yWzFrt+QyA==}
+  /terser@5.18.1:
+    resolution: {integrity: sha512-j1n0Ao919h/Ai5r43VAnfV/7azUYW43GPxK7qSATzrsERfW7+y2QW9Cp9ufnRF5CQUWbnLSo7UJokSWCqg4tsQ==}
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
