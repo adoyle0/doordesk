@@ -1,6 +1,5 @@
 bin/
 dist/
 lib/
-test/
 __pycache__/
 pyvenv.cfg
