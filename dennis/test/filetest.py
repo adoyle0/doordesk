@@ -1,6 +1,6 @@
+import os
 import markdown
 from datetime import date, datetime
-import os
 from pydantic import BaseModel
 
 class Article(BaseModel):
@@ -9,7 +9,7 @@ class Article(BaseModel):
     date: date
     content: str
 
-def walk_md(path: str):
+def walk_for_md(path: str):
     buf = []
 
     for root, _, files in os.walk(path):
@@ -20,11 +20,11 @@ def walk_md(path: str):
 
     return buf
 
-def get_articles_from_root_dir(root_path: str) -> list[Article]:
+def get_articles_from_dir(root_path: str) -> list[Article]:
     md = markdown.Markdown(extensions=['meta'])
     articles: list[Article] = []
 
-    for file_path in walk_md(root_path):
+    for file_path in walk_for_md(root_path):
         with open(file_path) as file:
             html: str = md.convert(file.read());
             meta: dict = md.Meta;
@@ -39,7 +39,11 @@ def get_articles_from_root_dir(root_path: str) -> list[Article]:
 
     return articles;
 
-DB = get_articles_from_root_dir('.');
+DB = sorted(
+        get_articles_from_dir('.'),
+        key=lambda article: article.date,
+        reverse=True
+        );
 
 for article in DB:
     print(
