@@ -1,7 +1,11 @@
+import os
+import markdown
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from datetime import date
+from datetime import date, datetime
+
+STATIC_PATH = "./static"
 
 api = FastAPI()
 
@@ -19,121 +23,59 @@ class Article(BaseModel):
     date: date
     content: str
 
-def get_html(content):
-    with open('./static/'+content) as file:
-        return file.read();
+def walk_for_md(path: str):
+    buf = []
 
-fake_db = [
+    for root, _, files in os.walk(path):
+        print(files)
+        mdeez = [f"{root}/{filename}" for filename in files if filename[-2:] == "md"]
 
-        Article(
-            content_type='project',
-            title='''Lightning''',
-            date=date(2023, 4, 27),
-            content=get_html('projects/20230427-lightning.html'),
-        ),
+        if mdeez:
+            buf.extend(mdeez)
 
-        Article(
-            content_type='project',
-            title='''Cartman is public!''',
-            date=date(2022, 10, 20),
-            content=get_html('projects/20221020-cartman.html'),
-        ),
+    return buf
 
-        Article(
-            content_type='game',
-            title='''fps''',
-            date=date(2022, 10, 9),
-            content=get_html('games/fps.html'),
-        ),
+def get_articles_from_dir(root_path: str) -> list[Article]:
+    md = markdown.Markdown(extensions=['meta'])
+    articles: list[Article] = []
 
-        Article(
-            content_type='game',
-            title='''balls''',
-            date=date(2022, 9, 13),
-            content=get_html('games/balls.html'),
-        ),
+    for file_path in walk_for_md(root_path):
+        with open(file_path) as file:
+            html: str = md.convert(file.read());
+            meta: dict = md.Meta;
 
-        Article(
-            content_type='game',
-            title='''adam''',  # this stuff will change
-            date=date(2022, 9, 11),
-            content=get_html('games/adam.html'),
-            ),
+            articles.append(
+                    Article(
+                        content_type=meta.get('content_type')[0],
+                        title=meta.get('title')[0],
+                        date=datetime.strptime( meta.get( 'date')[0], '%Y %m %d'),
+                        content=html,
+                        ));
 
-        Article(
-            content_type='blog',
-            title='''It's a post about nothing!''',
-            date=date(2022, 7, 1),
-            content=get_html('blog/20220701-progress.html'),
-        ),
+    return articles;
 
-        Article(
-            content_type='project',
-            title='''What Goes Into a Successful Reddit Post?''',
-            date=date(2022, 6, 16),
-            content=get_html('projects/20220614-reddit.html'),
-        ),
-
-        Article(
-            content_type='blog',
-            title='''Back to School''',
-            date=date(2022, 6, 2),
-            content=get_html('blog/20220602-back.html'),
-        ),
-
-        Article(
-            content_type='game',
-            title='''snek''',
-            date=date(2022, 5, 29),
-            content=get_html('games/snek.html'),
-            ),
-
-        Article(
-            content_type='project',
-            title='''Predicting Housing Prices''',
-            date=date(2022, 5, 29),
-            content=get_html('projects/20220529-housing.html'),
-            ),
-
-        Article(
-            content_type='blog',
-            title='''It's about time, NVIDIA''',
-            date=date(2022, 5, 20),
-            content=get_html('blog/20220520-nvidia.html'),
-        ),
-
-        Article(
-            content_type='blog',
-            title='''Change''',
-            date=date(2022, 5, 6),
-            content=get_html('blog/20220506-change.html'),
-        ),
-
-        Article(
-            content_type='blog',
-            title='''Hume''',
-            date=date(2022, 2, 7),
-            content=get_html('blog/000000000-swim.html'),
-        ),
-
-    ];
+DB = sorted(
+        get_articles_from_dir(STATIC_PATH),
+        key=lambda article: article.date,
+        reverse=True
+        );
 
 @api.get('/home')
 async def serve_home():
 
-    return fake_db
+    return DB
 
 @api.get('/blog')
 async def serve_blog():
 
-    return [entry for entry in fake_db if entry.content_type == 'blog']
+    return [entry for entry in DB if entry.content_type == 'blog']
 
 @api.get('/projects')
 async def serve_projects():
 
-    return [entry for entry in fake_db if entry.content_type == 'project' or entry.content_type == 'game']
+    return [entry for entry in DB if entry.content_type == 'project' or entry.content_type == 'game']
 
 @api.get('/bots')
 async def serve_bots():
 
-    return [entry for entry in fake_db if entry.content_type == 'chatbot']
+    return [entry for entry in DB if entry.content_type == 'chatbot']
