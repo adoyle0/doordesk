@@ -23,39 +23,29 @@ class Article(BaseModel):
     date: date
     content: str
 
-def walk_for_md(path: str):
-    buf = []
 
-    for root, _, files in os.walk(path):
-        print(files)
-        mdeez = [f"{root}/{filename}" for filename in files if filename[-2:] == "md"]
-
-        if mdeez:
-            buf.extend(mdeez)
-
-    return buf
-
-def get_articles_from_dir(root_path: str) -> list[Article]:
-    md = markdown.Markdown(extensions=['meta'])
+def get_articles_from_path(path: str) -> list[Article]:
+    md = markdown.Markdown(extensions=["meta"]);
     articles: list[Article] = []
 
-    for file_path in walk_for_md(root_path):
-        with open(file_path) as file:
-            html: str = md.convert(file.read());
-            meta: dict = md.Meta;
-
-            articles.append(
-                    Article(
-                        content_type=meta.get('content_type')[0],
-                        title=meta.get('title')[0],
-                        date=datetime.strptime( meta.get( 'date')[0], '%Y %m %d'),
-                        content=html,
-                        ));
-
+    for root, _, filenames in os.walk(path):
+        for filename in filenames:
+            if filename[-2:] == "md":
+                with open(f"{root}/{filename}") as file:
+                    html: str = md.convert(file.read());
+                    meta: dict = md.Meta;
+    
+                    articles.append(
+                            Article(
+                                content_type=meta.get("content_type")[0],
+                                title=meta.get("title")[0],
+                                date=datetime.strptime(meta.get("date")[0], "%Y %m %d"),
+                                content=html,
+                                ));
     return articles;
 
 DB = sorted(
-        get_articles_from_dir(STATIC_PATH),
+        get_articles_from_path(STATIC_PATH),
         key=lambda article: article.date,
         reverse=True
         );
