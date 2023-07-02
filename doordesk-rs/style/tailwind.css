@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply bg-gradient-to-br from-zinc-900 to-zinc-950;
+    @apply w-screen h-screen;
+}
+
+/* for innerHTML articles */ 
+article p {
+    @apply mt-5 indent-4;
+}
+
+article h3 {
+    @apply mt-8;
+}
+
+article h3 {
+    @apply text-2xl text-orange-600;
+}
+
+article a {
+    @apply text-orange-300 hover:underline;
+}
+
+article ul, article ol {
+    @apply mt-5 list-inside;
+}
+
+article ul {
+    @apply list-disc;
+}
+
+article ol {
+    @apply list-decimal;
+}
