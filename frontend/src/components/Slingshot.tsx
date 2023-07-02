@@ -5,7 +5,7 @@ export type Ammo = {
     content_type: string;
     title: string;
     date: string;
-    url: string;
+    content: string;
 };
 
 
