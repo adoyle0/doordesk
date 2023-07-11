@@ -67,8 +67,13 @@ pub fn ErrorTemplate(
                 let error_code= error.1.status_code();
                 view! {
                     cx,
-                    <h2>{error_code.to_string()}</h2>
-                    <p>"Error: " {error_string}</p>
+                    <article class="bg-zinc-700 mx-auto p-7 my-5 w-11/12 max-w-screen-xl rounded-md shadow-1g bg-opacity-10">
+                        <h1 class="max-6-xs text-3xl text-orange-600 font-light capitalize">
+                            {error_code.to_string()}
+                        </h1>
+                        <hr class="opacity-50" />
+                        <p>"Error: " {error_string}</p>
+                    </article>
                 }
             }
         />
