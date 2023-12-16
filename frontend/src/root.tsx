@@ -16,7 +16,7 @@ import {
 
 import "./root.css";
 
-export const DENNIS = "http://localhost:9696";
+export const DENNIS = "https://dennis.doordesk.net";
 
 
 export default function Root() {
