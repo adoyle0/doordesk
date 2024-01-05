@@ -1,10 +1,10 @@
-use leptos::*;
 use crate::components::article::*;
+use leptos::*;
 
 #[component]
-pub fn Home(cx: Scope) -> impl IntoView {
+pub fn Blog(cx: Scope) -> impl IntoView {
     view! { cx,
         <Article />
-        <p>home</p>
+        <p>blog</p>
     }
 }

@@ -1,7 +1,9 @@
 use crate::error_template::{AppError, ErrorTemplate};
+
 use leptos::*;
 use leptos_meta::*;
 use leptos_router::*;
+use crate::routes::{blog::*, home::*,projects::*};
 
 #[component]
 pub fn App(cx: Scope) -> impl IntoView {
@@ -10,13 +12,12 @@ pub fn App(cx: Scope) -> impl IntoView {
 
     view! {
         cx,
-
         // injects a stylesheet into the document <head>
         // id=leptos means cargo-leptos will hot-reload this stylesheet
         <Stylesheet id="leptos" href="/pkg/doordesk.css"/>
 
         // sets the document title
-        <Title text="DoorDesk"/>
+        <Title text="doordesk"/>
 
         // content for this welcome page
         <Router fallback=|cx| {
@@ -50,46 +51,10 @@ pub fn App(cx: Scope) -> impl IntoView {
                     <Route path="/projects" view=|cx| view! { cx, <Projects /> }/>
                 </Routes>
             </main>
-            <p class="text-center hover:rotate-180 duration-200 w-8 m-auto"><a href="https://open.spotify.com/playlist/3JRNw9gpt1w5ptsw8uDeYc?si=8f7e4191113f41f9">":)"</a></p><br />
+            <p class="text-center hover:rotate-180 duration-200 w-8 m-auto">
+                <a href="https://open.spotify.com/playlist/3JRNw9gpt1w5ptsw8uDeYc?si=8f7e4191113f41f9">":)"</a>
+            </p>
+            <br />
         </Router>
-    }
-}
-
-/// Renders the home page of your application.
-#[component]
-fn Article(cx: Scope) -> impl IntoView {
-    let (count, set_count) = create_signal(cx, 0);
-    let on_click = move |_| set_count.update(|count| *count += 1);
-
-    view! { cx,
-        <article class="bg-zinc-700 mx-auto p-7 my-5 w-11/12 max-w-screen-xl rounded-md shadow-1g bg-opacity-10">
-            <h1 class="max-6-xs text-3xl text-orange-600 font-light capitalize">"ayo"</h1>
-            <hr class="opacity-50" />
-            <span class="opacity-50 text-xs pt-0 m-t pb-3.5">"today"</span>
-            <div>
-                <button on:click=on_click>"Click Me: " {count}</button>
-            </div>
-        </article>
-    }
-}
-
-#[component]
-fn Home(cx: Scope) -> impl IntoView {
-    view! { cx,
-        <Article />
-    }
-}
-
-#[component]
-fn Blog(cx: Scope) -> impl IntoView {
-    view! { cx,
-        <Article />
-    }
-}
-
-#[component]
-fn Projects(cx: Scope) -> impl IntoView {
-    view! { cx,
-        <Article />
     }
 }
