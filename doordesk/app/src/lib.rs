@@ -1,32 +1,32 @@
 use crate::error_template::{AppError, ErrorTemplate};
 
+//use crate::routes::{blog::*, home::*, projects::*};
 use leptos::*;
 use leptos_meta::*;
 use leptos_router::*;
-use crate::routes::{blog::*, home::*,projects::*};
+
+pub mod error_template;
+pub mod components;
+pub mod routes;
+
+use crate::routes::{home::*, blog::*, projects::*};
 
 #[component]
-pub fn App(cx: Scope) -> impl IntoView {
+pub fn App() -> impl IntoView {
     // Provides context that manages stylesheets, titles, meta tags, etc.
-    provide_meta_context(cx);
+    provide_meta_context();
 
     view! {
-        cx,
-        // injects a stylesheet into the document <head>
-        // id=leptos means cargo-leptos will hot-reload this stylesheet
         <Stylesheet id="leptos" href="/pkg/doordesk.css"/>
 
         // sets the document title
         <Title text="doordesk"/>
 
         // content for this welcome page
-        <Router fallback=|cx| {
+        <Router fallback=|| {
             let mut outside_errors = Errors::default();
             outside_errors.insert_with_default_key(AppError::NotFound);
-            view! { cx,
-                <ErrorTemplate outside_errors/>
-            }
-            .into_view(cx)
+            view! { <ErrorTemplate outside_errors/> }.into_view()
         }>
             <nav class="bg-gradient-to-b from-zinc-800 to-zinc-900 shadow-lg sticky top-0">
                 <ul class="container flex items-center p-3">
@@ -46,9 +46,9 @@ pub fn App(cx: Scope) -> impl IntoView {
             </nav>
             <main>
                 <Routes>
-                    <Route path="/" view=|cx| view! { cx, <Home /> }/>
-                    <Route path="/blog" view=|cx| view! { cx, <Blog /> }/>
-                    <Route path="/projects" view=|cx| view! { cx, <Projects /> }/>
+                    <Route path="" view=Home/>
+                    <Route path="blog" view=Blog/>
+                    <Route path="projects" view=Projects/>
                 </Routes>
             </main>
             <p class="text-center hover:rotate-180 duration-200 w-8 m-auto">
