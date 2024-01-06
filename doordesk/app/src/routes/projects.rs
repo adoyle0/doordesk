@@ -3,8 +3,5 @@ use leptos::*;
 
 #[component]
 pub fn Projects() -> impl IntoView {
-    view! {
-        <Article />
-        <p>Projects</p>
-    }
+    view! { <Article/> }
 }
