@@ -9,7 +9,7 @@ pub struct ArticleData {
     pub content: String,
 }
 
-#[server(Slingshot, "/api", "Cbor")]
+#[server(Slingshot)]
 pub async fn slingshot() -> Result<ArticleData, ServerFnError> {
     let data = ArticleData {
         content_type: String::from("Blog"),
