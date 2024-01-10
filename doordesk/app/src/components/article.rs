@@ -13,8 +13,8 @@ pub fn Article() -> impl IntoView {
 
     view! {
         <Transition>
-            <article class="bg-zinc-700 mx-auto p-7 my-5 w-11/12 max-w-screen-xl rounded-md shadow-1g bg-opacity-10">
-                <h1 class="max-6-xs text-3xl text-orange-600 font-light capitalize">
+            <article class="p-7 my-5 mx-auto w-11/12 max-w-screen-xl bg-opacity-10 rounded-md bg-zinc-700 shadow-1g">
+                <h1 class="text-3xl font-light text-orange-600 capitalize max-6-xs">
                     {move || match data.get() {
                         None => "Loading...".to_string(),
                         Some(data) => data.unwrap().title,
@@ -22,7 +22,7 @@ pub fn Article() -> impl IntoView {
 
                 </h1>
                 <hr class="opacity-50"/>
-                <span class="opacity-50 text-xs pt-0 m-t pb-3.5">
+                <span class="pt-0 pb-3.5 text-xs opacity-50 m-t">
                     {move || match data.get() {
                         None => "Loading...".to_string(),
                         Some(data) => data.unwrap().date,
