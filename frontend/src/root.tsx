@@ -50,6 +50,9 @@ export default function Root() {
                                 <li class={`border-b-2 ${active("/projects")} mx-1.5 sm:mx-6`}>
                                     <A href="/projects">Projects</A>
                                 </li>
+                                <li class={`border-b-2 ${active("/git")} mx-1.5 sm:mx-6`}>
+                                    <A href="https://git.doordesk.net">Git</A>
+                                </li>
                             </ul>
                         </nav>
                         <Routes>
