@@ -6,15 +6,17 @@ use leptos::*;
 pub fn Home() -> impl IntoView {
     let data_resource = create_local_resource(|| (), |_| async move { slingshot().await });
 
+    let articles_view = move || {
+        data_resource.and_then(|data| {
+            data.iter()
+            .map(|article| view! { <Article data=article.clone()/> })
+            .collect_view()
+        })
+    };
+
     view! {
         <Suspense fallback=move || {
             view! { <p>"Loading..."</p> }
-        }>
-            {move || match data_resource.get() {
-                None => view! { <p>"Loading..."</p> }.into_view(),
-                Some(data) => view! { <Article data=data.unwrap()/> }.into_view(),
-            }}
-
-        </Suspense>
+        }>{articles_view}</Suspense>
     }
 }
