@@ -1,3 +1,3 @@
 pub mod home;
-pub mod blog;
-pub mod projects;
+// pub mod blog;
+// pub mod projects;

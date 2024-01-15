@@ -1,5 +1,12 @@
 use leptos::*;
-use serde::{Serialize, Deserialize};
+use serde::{Deserialize, Serialize};
+
+use std::time::Duration;
+use std::thread::sleep;
+
+pub fn fetch(path: &str) -> String {
+    format!("https://dennis.doordesk.net/{path}")
+}
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ArticleData {
@@ -18,5 +25,6 @@ pub async fn slingshot() -> Result<ArticleData, ServerFnError> {
         content: String::from("Testicles"),
     };
 
+    sleep(Duration::from_secs(1));
     Ok(data)
 }
