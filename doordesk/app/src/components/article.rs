@@ -12,7 +12,7 @@ pub fn Article(data: ArticleData) -> impl IntoView {
                 </h1>
                 <hr class="opacity-50"/>
                 <span class="pt-0 pb-3.5 text-xs opacity-50 m-t">{&data.date}</span>
-                <div>{&data.content}</div>
+                <div inner_html={&data.content}></div>
             </article>
         </Transition>
     }
