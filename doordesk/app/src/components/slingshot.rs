@@ -3,10 +3,6 @@ use std::{any::Any, fs};
 use leptos::*;
 use serde::{Deserialize, Serialize};
 
-pub fn fetch(path: &str) -> String {
-    format!("https://dennis.doordesk.net/{path}")
-}
-
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ArticleData {
     pub content_type: String,
