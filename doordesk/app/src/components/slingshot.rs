@@ -1,5 +1,3 @@
-use std::{any::Any, fs};
-
 use leptos::*;
 use serde::{Deserialize, Serialize};
 
@@ -13,28 +11,26 @@ pub struct ArticleData {
 
 #[server]
 pub async fn slingshot() -> Result<Vec<ArticleData>, ServerFnError> {
-    use std::fs::*;
-    use std::io::prelude::*;
-
     let mut articles = vec![];
-    let data_dir = "./public/static";
+    let data_dir = "./pubic/static";
 
-    for dir in fs::read_dir(data_dir).unwrap() {
-        for file in fs::read_dir(dir.unwrap().path()).unwrap() {
-            let fileinfo = file.unwrap();
+    for dir in std::fs::read_dir(data_dir)? {
+        for file in std::fs::read_dir(dir?.path())? {
+            let fileinfo = file?;
             let filepath = fileinfo.path();
-            let filetype = filepath.extension();
 
-            if filetype.unwrap().to_str() == Some("md") {
-                let file = read_to_string(filepath).unwrap();
-                let md1: String = markdown::to_html(&file);
+            if let Some(filetype) = filepath.extension() {
+                if filetype == "md" {
+                    let file = std::fs::read_to_string(filepath)?;
+                    let md1: String = markdown::to_html(&file);
 
-                articles.push(ArticleData {
-                    content_type: String::from("Blog"),
-                    title: String::from("Test article"),
-                    date: String::from("12/21/2022"),
-                    content: md1,
-                })
+                    articles.push(ArticleData {
+                        content_type: String::from("Blog"),
+                        title: String::from("Test article"),
+                        date: String::from("12/21/2022"),
+                        content: md1,
+                    })
+                }
             }
         }
     }
@@ -42,7 +38,7 @@ pub async fn slingshot() -> Result<Vec<ArticleData>, ServerFnError> {
     // Simulate lag
     use std::thread::sleep;
     use std::time::Duration;
-    sleep(Duration::from_secs(1));
+    sleep(Duration::from_millis(300));
 
     Ok(articles)
 }
