@@ -10,11 +10,10 @@ pub struct ArticleData {
 }
 
 #[server]
-pub async fn slingshot() -> Result<Vec<ArticleData>, ServerFnError> {
+pub async fn slingshot(path: String) -> Result<Vec<ArticleData>, ServerFnError> {
     let mut articles = vec![];
-    let data_dir = "./pubic/static";
 
-    for dir in std::fs::read_dir(data_dir)? {
+    for dir in std::fs::read_dir(path)? {
         for file in std::fs::read_dir(dir?.path())? {
             let fileinfo = file?;
             let filepath = fileinfo.path();
