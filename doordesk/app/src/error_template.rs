@@ -1,3 +1,5 @@
+use std::any::type_name;
+
 use cfg_if::cfg_if;
 use http::status::StatusCode;
 use leptos::*;
@@ -20,8 +22,6 @@ impl AppError {
     }
 }
 
-// A basic function to display errors served by the error boundaries.
-// Feel free to do more complicated things here than just displaying the error.
 #[component]
 pub fn ErrorTemplate(
     #[prop(optional)] outside_errors: Option<Errors>,
@@ -37,38 +37,26 @@ pub fn ErrorTemplate(
     // Get Errors from Signal
     let errors = errors.get_untracked();
 
-    // Downcast lets us take a type that implements `std::error::Error`
-    let errors: Vec<AppError> = errors
-        .into_iter()
-        .filter_map(|(_k, v)| v.downcast_ref::<AppError>().cloned())
-        .collect();
+    let errors: Box<_> = errors.into_iter().filter_map(|(_k, v)| v.into()).collect();
     println!("Errors: {errors:#?}");
 
-    // Only the response code for the first error is actually sent from the server
-    // this may be customized by the specific application
-    cfg_if! { if #[cfg(feature="ssr")] {
-        let response = use_context::<ResponseOptions>();
-        if let Some(response) = response {
-            response.set_status(errors[0].status_code());
-        }
-    }}
-
     view! {
-        <h1>{if errors.len() > 1 { "Errors" } else { "Error" }}</h1>
-        <For
-            // a function that returns the items we're iterating over; a signal is fine
-            each=move || { errors.clone().into_iter().enumerate() }
-            // a unique key for each item as a reference
-            key=|(index, _error)| *index
-            // renders each item to a view
-            children=move |error| {
-                let error_string = error.1.to_string();
-                let error_code = error.1.status_code();
-                view! {
-                    <h2>{error_code.to_string()}</h2>
-                    <p>"Error: " {error_string}</p>
-                }
-            }
-        />
+        <article class="p-7 my-5 mx-auto w-11/12 max-w-screen-xl bg-opacity-10 rounded-md bg-zinc-700 shadow-1g">
+            <h1 class="text-3xl font-light text-orange-600 capitalize max-6-xs">
+                {if errors.len() > 1 { "Errors!" } else { "Error!" }}
+            </h1>
+            <hr class="opacity-50"/>
+
+            <ul>
+                {move || {
+                    errors
+                        .into_iter()
+                        .map(|e: &_| view! { <li>{e.to_string()}</li> })
+                        .collect_view()
+                }}
+
+            </ul>
+
+        </article>
     }
 }
