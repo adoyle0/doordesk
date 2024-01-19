@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-    @apply bg-gradient-to-br from-zinc-900 to-zinc-950;
+    @apply bg-gradient-to-br from-zinc-900 to-zinc-950 bg-fixed;
     @apply w-screen h-screen;
     @apply text-orange-50 antialiased font-mono tracking-tighter;
 }
