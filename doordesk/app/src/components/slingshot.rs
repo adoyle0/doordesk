@@ -13,8 +13,9 @@ pub async fn slingshot(path: String) -> Result<Vec<ArticleData>, ServerFnError> 
             if let Some(filetype) = filepath.extension() {
                 if filetype == "md" {
                     let file = std::fs::read_to_string(filepath)?;
-                    let html_from_md = femark::process_markdown_to_html(&file.to_string())
-                        .expect("Problem processing markdown");
+                    let html_from_md =
+                        femark::process_markdown_to_html_with_frontmatter(&file.to_string(), true)
+                            .expect("Problem processing markdown");
                     let content = html_from_md.content;
                     let _toc = html_from_md.toc;
                     let _frontmatter = html_from_md.frontmatter;
