@@ -15,10 +15,18 @@ http.workspace = true
 cfg-if.workspace = true
 thiserror.workspace = true
 serde = "1.0.195"
-markdown = "1.0.0-alpha.16"
+femark = { version = "0.1.5", optional = true }
 
 [features]
 default = []
 hydrate = ["leptos/hydrate", "leptos_meta/hydrate", "leptos_router/hydrate"]
-ssr = ["leptos/ssr", "leptos_meta/ssr", "leptos_router/ssr", "dep:leptos_axum"]
+ssr = [
+  "leptos/ssr",
+  "leptos_meta/ssr",
+  "leptos_router/ssr",
+  "dep:leptos_axum",
+  "dep:femark",
+]
 
+[package.metadata.cargo-all-features]
+denylist = ["femark"]
