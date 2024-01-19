@@ -13,7 +13,7 @@ pub fn Home() -> impl IntoView {
     let articles_view = move || {
         data_resource.and_then(|data| {
             data.iter()
-                .map(|article| view! { <Article data=article.to_owned()/> })
+                .map(|article| view! { <Article data=article.clone()/> })
                 .collect_view()
         })
     };
