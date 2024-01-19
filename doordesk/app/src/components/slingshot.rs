@@ -1,13 +1,5 @@
 use leptos::*;
-use serde::{Deserialize, Serialize};
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct ArticleData {
-    pub content_type: String,
-    pub title: String,
-    pub date: String, // make datetime?
-    pub content: String,
-}
+use crate::components::article::ArticleData;
 
 #[server]
 pub async fn slingshot(path: String) -> Result<Vec<ArticleData>, ServerFnError> {
