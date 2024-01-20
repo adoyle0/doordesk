@@ -19,6 +19,11 @@ nav li:has(> a[aria-current="page"]) {
   @apply border-b-orange-700 border-b-2;
 }
 
+/* Shadows don't work inline for some reason */
+article {
+  @apply shadow-lg shadow-black;
+}
+
 /* for innerHTML articles */
 article p {
   @apply mt-5 indent-4;
