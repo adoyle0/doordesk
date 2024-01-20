@@ -43,6 +43,8 @@ article ol {
   @apply list-decimal;
 }
 
+
+/* Code blocks */
 .hh4 {
   @apply text-orange-600;
 }
