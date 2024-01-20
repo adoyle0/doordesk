@@ -76,9 +76,9 @@ article ol {
 }
 
 .code-block {
-  @apply bg-black bg-opacity-40 p-3 rounded-lg shadow-lg shadow-black;
+  @apply bg-black bg-opacity-50 p-3 rounded-lg shadow-lg shadow-black max-w-fit m-auto;
 }
 
 .code-block-inner {
-  @apply p-2;
+  @apply p-2 mt-2 text-sm border-t-gray-500 overflow-x-scroll border-t-2;
 }
