@@ -19,7 +19,7 @@ article p {
 }
 
 article h3 {
-    @apply mt-8 text-2xl text-orange-600;
+  @apply mt-8 text-2xl text-orange-600;
 }
 
 article a {
@@ -27,7 +27,7 @@ article a {
 }
 
 article h3 > a {
-    @apply text-orange-600;
+  @apply text-orange-600;
 }
 
 article ul,
@@ -41,4 +41,37 @@ article ul {
 
 article ol {
   @apply list-decimal;
+}
+
+.hh4 {
+  @apply text-orange-600;
+}
+
+.hh3 {
+  @apply text-blue-500;
+}
+
+.hh13 {
+  @apply text-orange-800;
+}
+
+.hh10 {
+  @apply text-slate-500;
+}
+
+.hh5 {
+  @apply text-orange-300;
+}
+
+/* dunno what this is yet */
+.hh18 {
+  color: red;
+}
+
+.code-block {
+  @apply bg-black bg-opacity-40 p-3 rounded-lg shadow-lg shadow-black;
+}
+
+.code-block-inner {
+  @apply p-2;
 }
