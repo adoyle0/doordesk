@@ -16,6 +16,7 @@ cfg-if.workspace = true
 thiserror.workspace = true
 serde = "1.0.195"
 femark = { version = "0.1.5", optional = true }
+toml = "0.8.8"
 
 [features]
 default = []

@@ -89,6 +89,7 @@ dependencies = [
  "leptos_router",
  "serde",
  "thiserror",
+ "toml 0.8.8",
 ]
 
 [[package]]

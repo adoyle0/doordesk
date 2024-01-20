@@ -1,6 +1,8 @@
-Content_Type: project
-Title: Lightning
-Date: 2023 4 27
+```toml
+content_type = "project"
+title = "Lightning"
+date = "2023 4 27"
+```
 
 [Lightning](https://lightning.doordesk.net) is a mapping/data vis project for finding
 EV charging stations. It uses [Martin](https://github.com/maplibre/martin) to serve

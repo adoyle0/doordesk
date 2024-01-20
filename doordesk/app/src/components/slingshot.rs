@@ -1,5 +1,14 @@
 use crate::components::article::ArticleData;
 use leptos::*;
+use serde::Deserialize;
+
+// Can this merge with ArticleData somehow?
+#[derive(Deserialize)]
+struct TomlData {
+    content_type: String,
+    title: String,
+    date: String,
+}
 
 #[server]
 pub async fn slingshot(path: String) -> Result<Vec<ArticleData>, ServerFnError> {
@@ -18,12 +27,17 @@ pub async fn slingshot(path: String) -> Result<Vec<ArticleData>, ServerFnError> 
                             .expect("Problem processing markdown");
                     let content = html_from_md.content;
                     let _toc = html_from_md.toc;
-                    let _frontmatter = html_from_md.frontmatter;
+                    let frontmatter = html_from_md
+                        .frontmatter
+                        .expect(&format!("error getting frontmatter for {}", &file).to_string());
+
+                    let toml: TomlData =
+                        toml::from_str(&frontmatter.code_block.unwrap().source).unwrap();
 
                     articles.push(ArticleData {
-                        content_type: String::from("Blog"),
-                        title: String::from("Test article"),
-                        date: String::from("12/21/2022"),
+                        content_type: toml.content_type,
+                        title: toml.title,
+                        date: toml.date,
                         content,
                     })
                 }
