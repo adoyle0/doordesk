@@ -23,21 +23,23 @@ pub fn App() -> impl IntoView {
             outside_errors.insert_with_default_key(AppError::NotFound);
             view! { <ErrorTemplate outside_errors/> }.into_view()
         }>
+            // Some repetitive nav styling is defined in the main .css file
             <nav class="sticky top-0 z-50 bg-gradient-to-b shadow-lg from-zinc-800 to-zinc-900">
                 <ul class="container flex items-center p-3">
-                    <li class="mx-1.5 sm:mx-6">"DoorDesk"</li>
-                    <li class="mx-1.5 sm:mx-6">
+                    // Logo
+                    <p class="mx-1.5 sm:mx-6">"DoorDesk"</p>
+                    <li>
                         <A href="" exact=true>
                             "Home"
                         </A>
                     </li>
-                    <li class="mx-1.5 sm:mx-6">
+                    <li>
                         <A href="/blog">"Blog"</A>
                     </li>
-                    <li class="mx-1.5 sm:mx-6">
+                    <li>
                         <A href="/projects">"Projects"</A>
                     </li>
-                    <li class="mx-1.5 sm:mx-6">
+                    <li>
                         <a href="https://git.doordesk.net">"Git"</a>
                     </li>
                 </ul>
