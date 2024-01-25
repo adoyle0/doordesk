@@ -16,7 +16,7 @@ cfg-if.workspace = true
 thiserror.workspace = true
 serde = "1.0.195"
 femark = { version = "0.1.5", optional = true }
-toml = "0.8.8"
+toml = { version = "0.8.8", optional = true }
 
 [features]
 default = []
@@ -27,6 +27,7 @@ ssr = [
   "leptos_router/ssr",
   "dep:leptos_axum",
   "dep:femark",
+  "dep:toml",
 ]
 
 [package.metadata.cargo-all-features]
